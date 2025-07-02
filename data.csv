@@ -1,0 +1,49 @@
+﻿key,parent,name,position,details,color
+1,0,Marcelo Saldias ,CEO ,,dimgray
+2,1,Ignacio Saldias ,Director de operaciones ,,dimgray
+3,2,Giuliano Raimundo Giannetto ,Gerente de ventas general ,,dimgray
+4,2,Alicia Ratto ,Jefa de Tesoreria y RRHH ,,dimgray
+5,2,Juan Castro ,Jefe de Creditos y Cobranzas ,,dimgray
+6,2,Natalia Abramowicz ,Cuentas a pagar ,,dimgray
+7,2,Rodrigo Pardo ,Business planner ,,dimgray
+8,2,Alejandro Mambrilla ,Gerente de logistica ,,dimgray
+9,2,Matias Gil ,Gerente de compras ,,dimgray
+10,2,Encargado de produccion ,,,dimgray
+11,2,Sergio Quiroga ,Sistemas ,,dimgray
+12,3,Juan Bartusch ,Encargado suc. Añelo ,,dimgray
+13,3,Nicolas Avellaneda ,Jefe de Customer Services ,,dimgray
+14,3,Comerciales ,,Enrique Pontnau - Eduardo Ferraz - Karina Gimenez - Gaston Luis ,dimgray
+15,3,Mario Torre ,Jefe Ventas Regional Automotriz ,,dimgray
+16,3,Abigail Sulkes ,Diseño e imagen ,,dimgray
+17,12,Fernando Roldan ,Jefe de lavadero ,,dimgray
+18,12,Leandro Pessolano ,Jefe de taller ,,dimgray
+19,17,Ayudantes de lavadero ,,Axel Diaz - Carlos Ordoñez - Braian Lias - Juan Jose Cejas ,dimgray
+20,18,Mecanicos ,,Brian Garcia - Jonathan Rasgido - Matias Schmidt ,dimgray
+21,13,Customer services industrial ,,Eduardo Falzone - Sara Brahim - Fernando Oviedo - Luz Donoso - Javier Ciccere - Matias Carvelli - Erick Contreras ,dimgray
+22,15,Leandro Antognazza ,Coordinador de vtas. Automotriz ,,dimgray
+23,15,Comerciales CABA ,,Cesar Annetti - Roberto Olivares - Martin Ibarra ,dimgray
+24,22,Customer services automotriz ,,Ignacio Spraggon - Miguelangel Villamizar - Matias Carvelli - Erick Contreras ,dimgray
+25,22,Cristian Gekieree ,Analista de ventas Automotriz ,,dimgray
+26,4,Abril Canavessi,Adm. de personal ,,dimgray
+27,5,Facturacion y cobranzas ,,Damaris Santander - Viviana Rodriguez - Leila Cardozo - Veronica Robles Sosa ,dimgray
+28,6,Belen Espinosa ,Administracion ,,dimgray
+29,8,Miguel Villanueva ,Jefe de logistica ,,dimgray
+30,29,Transportistas ,,Cristian Equizas - Dario Batista - Juan Pablo Alfieri - Marcos Gatica ,dimgray
+31,29,Jorge Paredes ,Encargado suc. Neuquen ,,dimgray
+32,29,Logistica CABA ,Gonzalo Romero - Fulvio Ferreria - Luis Alegre - Luis Medina ,,dimgray
+33,29,Victor Carrizo ,Encargado suc. Comodoro Rivadavia ,,dimgray
+34,29,Juan Bartusch ,Encargado suc. Añelo ,,dimgray
+35,29,Matias Gil ,Encargado suc. Chascomus ,,dimgray
+36,35,Miguel Betti ,Coordinador de recepcion ,,dimgray
+37,35,Axel Betti ,Coordinador de expedicion ,,dimgray
+38,36,Logistica Chascomus ,,Eduardo Haedo - Mario Leonel Piedra - Javier Sussane - Pablo Fernandez - Dario Batista ,dimgray
+39,37,Logistica Chascomus ,,Pablo Fernandez ,dimgray
+40,34,Santiago Cabral ,Jefe de pañol ,,dimgray
+41,33,Logisticas CDR ,,Maximiliano Carloni - Matias Velazquez ,dimgray
+42,31,Marcelo Lagos ,Coordinador de logistica ,,dimgray
+43,42,Logistica NQN ,,Javier Tardugno - Franco Fuentes ,dimgray
+44,9,Compras ,,Emiliano Llanos (CHSMS) - Daniel Barrios (CABA),dimgray
+45,10,Juan Bartusch ,Encargado suc. Añelo ,,dimgray
+46,45,Tac. Armado de mangueras ,,Valentin Mendoza - Santiago Cabral ,dimgray
+47,10,Victor Carrizo ,Encargado suc. Comodoro Rivadavia ,,dimgray
+48,47,Tac. Armado de mangueras ,,Maximiliano Carloni - Matias Velazquez ,dimgray

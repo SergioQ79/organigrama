@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organigrama con Esquinas Redondeadas</title>
+  
+  <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    #myDiagramDiv {
+      width: 100%;
+      height: 100vh;
+      border: 1px solid lightgray;
+    }
+  </style>
+  
+</head>
+<body>
+  <div id="myDiagramDiv"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const $ = go.GraphObject.make;
+
+      // Crear el diagrama
+      const myDiagram = $(go.Diagram, "myDiagramDiv", {
+        layout: $(go.TreeLayout, { angle: 90, layerSpacing: 35 }),
+        "undoManager.isEnabled": true
+      });
+
+      // Plantilla de nodo con esquinas redondeadas
+      myDiagram.nodeTemplate =
+        $(go.Node, "Vertical",
+          { selectable: true },
+          $(go.Panel, "Auto",
+            $(go.Shape, "RoundedRectangle", // Cambiado a RoundedRectangle para esquinas redondeadas
+              { fill: "lightgray", strokeWidth: 3, stroke: "darkorange", parameter1: 20 }, // parameter1 define el radio de las esquinas
+              new go.Binding("fill", "color")),
+            $(go.Panel, "Vertical", { margin: 8 },
+              // Imagen opcional
+              $(go.Picture,
+                {
+                  width: 50, height: 50, margin: 4,
+                  visible: false
+                },
+                new go.Binding("source", "image"),
+                new go.Binding("visible", "image", function (image) {
+                  return !!image && image.trim() !== "";
+                })),
+              $(go.TextBlock,
+                {
+                  font: "bold 12pt Arial",
+                  stroke: "#ffffff",
+                  textAlign: "center"
+                },
+                new go.Binding("text", "name")),
+              $(go.TextBlock,
+                {
+                  font: "italic 10pt Arial",
+                  stroke: "darkorange",
+                  textAlign: "center"
+                },
+                new go.Binding("text", "position")),
+              $(go.TextBlock,
+                {
+                  font: "12pt Arial",
+                  stroke: "darkorange",
+                  textAlign: "center",
+                  wrap: go.TextBlock.WrapFit,
+                  margin: new go.Margin(4, 0, 0, 0),
+                  maxLines: 10
+                },
+                new go.Binding("text", "details", function (details) {
+                  return details ? details.replace(/-/g, "\n") : "";
+                }))
+            )
+          ),
+          // Botón para colapsar/expandir
+          $("Button",
+            {
+              alignment: go.Spot.Bottom,
+              alignmentFocus: go.Spot.Top,
+              click: function (e, obj) {
+                const node = obj.part;
+                if (node instanceof go.Node) {
+                  if (node.isTreeExpanded) {
+                    node.diagram.commandHandler.collapseTree(node);
+                  } else {
+                    node.diagram.commandHandler.expandTree(node);
+                  }
+                }
+              }
+            },
+            $(go.TextBlock, "+/-", { margin: 4, font: "bold 10pt Arial", stroke: "#333" })
+          )
+        );
+
+      // Plantilla de enlace
+      myDiagram.linkTemplate =
+        $(go.Link,
+          { routing: go.Link.Orthogonal, corner: 5 },
+          $(go.Shape, { strokeWidth: 2, stroke: "#555" }));
+
+      // Cargar y procesar el archivo CSV
+      Papa.parse("data.csv", {
+  download: true,
+  header: true,
+  dynamicTyping: true,
+  complete: function (results) {
+    const data = results.data.map(row => {
+      // LIMPIAR claves del objeto
+      const cleanRow = {};
+      Object.keys(row).forEach(k => {
+        cleanRow[k.trim()] = row[k]; // ← elimina espacios
+      });
+
+      return {
+        key: parseInt(cleanRow.key, 10),
+        parent: cleanRow.parent ? parseInt(cleanRow.parent, 10) : undefined,
+        name: cleanRow.name || "",
+        position: cleanRow.position || "",
+        details: cleanRow.details || "",
+        color: cleanRow.color || "",
+        image: cleanRow.image || ""
+      };
+    });
+
+    myDiagram.model = new go.TreeModel(data);
+  }
+});
+
+    });
+  </script>
+</body>
+</html>
